@@ -31,13 +31,15 @@ pipeline {
                 sh '''
 
                 # Stop the existing application
-                pm2 stop my-app || true
+                #pm2 stop my-app || true
 
                 # Start the new application
-                pm2 start dist/main.js --name my-app
+                #pm2 start dist/main.js --name my-app
+
+                pm2 reload my-app
 
                 # Save the pm2 process list and corresponding environments
-                pm2 save
+                #pm2 save
                 '''
             }
         }
