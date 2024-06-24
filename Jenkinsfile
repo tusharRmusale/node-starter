@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/NikhilChowdhury27/node-starter.git'
+               sh 'git pull origin main'
             }
         }
         stage('Install Dependencies') {
@@ -31,15 +31,13 @@ pipeline {
                 sh '''
 
                 # Stop the existing application
-                #pm2 stop my-app || true
+                pm2 stop my-app || true
 
                 # Start the new application
-                #pm2 start dist/main.js --name my-app
-
-                pm2 reload my-app
+                pm2 start dist/main.js --name my-app
 
                 # Save the pm2 process list and corresponding environments
-                #pm2 save
+                pm2 save
                 '''
             }
         }
