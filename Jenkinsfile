@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     tools {
-        nodejs 'Latest node'  // Ensure this matches the name in Global Tool Configuration
+        nodejs 'Node for pipeline'  // Ensure this matches the name in Global Tool Configuration
     }
 
     stages {
